@@ -1,5 +1,5 @@
 // app/climatizacion/page.tsx
-import { BrandBannerDark } from "../../components/BrandBanners";
+import { BrandBannerDark } from "@/components/BrandBanners";
 
 const WHATSAPP_ENABLED = process.env.NEXT_PUBLIC_WHATSAPP_ENABLED === "true";
 
