@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Container } from "@/components/ui/Container";
 import { SiteHeader } from "@/components/SiteHeader";
+import { BrandBannerDark } from "@/components/BrandBanners";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
@@ -22,7 +23,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
 
         <main className="py-8">
-          <Container>{children}</Container>
+          <Container>
+            <div className="space-y-10">
+              {/* Banda de marca global (mismo look que en Climatización) */}
+              <BrandBannerDark />
+
+              {/* Contenido de cada página */}
+              {children}
+            </div>
+          </Container>
         </main>
 
         <footer className="mt-8 border-t border-slate-200 bg-slate-900 py-8 text-sm text-slate-200">
