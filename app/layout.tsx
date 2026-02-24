@@ -1,7 +1,19 @@
 // app/layout.tsx
+import type { Metadata } from "next";
 import "./globals.css";
 import { Container } from "@/components/ui/Container";
 import { SiteHeader } from "@/components/SiteHeader";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  title: {
+    default: "ServiPlusUltra | Multiservicios a domicilio en Madrid y Barcelona",
+    template: "%s | ServiPlusUltra",
+  },
+  description:
+    "Electricidad, climatización y reparaciones del hogar a domicilio en Madrid y Barcelona. Técnicos cercanos y atención prioritaria en urgencias. +34 655 099 298.",
+  alternates: { canonical: "/" },
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -17,9 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Container>
             <div className="flex flex-col gap-2 text-center sm:text-left">
               <div className="font-semibold">ServiPlusUltra Solutions S.L.</div>
-              <div className="text-slate-400">
-                Servicio a domicilio en Madrid y Barcelona
-              </div>
+              <div className="text-slate-400">Servicio a domicilio en Madrid y Barcelona</div>
               <div className="text-slate-400">
                 Tel:{" "}
                 <a

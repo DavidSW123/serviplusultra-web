@@ -1,199 +1,167 @@
+// app/electricidad/page.tsx
+import { Section } from "@/components/ui/Section";
+import { Card, CardText, CardTitle } from "@/components/ui/Card";
+import { ButtonLink } from "@/components/ui/ButtonLink";
+
 const WHATSAPP_ENABLED = process.env.NEXT_PUBLIC_WHATSAPP_ENABLED === "true";
 
 export default function ElectricidadPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-12">
       {/* HERO */}
-      <section className="space-y-3">
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+      <Section className="space-y-4">
+        <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
           Electricistas a domicilio en Madrid y Barcelona que dan la cara
         </h1>
 
-        <p className="text-sm text-slate-700">
-          Averías eléctricas, enchufes que fallan, cuadros antiguos o instalaciones
-          que no dan confianza. Vamos a tu casa o negocio en Madrid y Barcelona,
-          revisamos lo que pasa y te proponemos la solución más segura y razonable,
-          sin sustos en la factura.
+        <p className="max-w-3xl text-base text-slate-700 sm:text-lg">
+          Averías eléctricas, enchufes que fallan, cuadros antiguos o instalaciones que no dan
+          confianza. Vamos a tu casa o negocio en Madrid y Barcelona, revisamos lo que pasa y te
+          proponemos la solución más segura y razonable, sin sustos en la factura.
         </p>
 
-        <div className="flex flex-wrap gap-3 pt-1">
-          <a
-            href="tel:+34655099298"
-            className="rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-600 no-underline"
-          >
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <ButtonLink href="tel:+34655099298" variant="primary" external>
             Llamar a un electricista
-          </a>
+          </ButtonLink>
 
           {WHATSAPP_ENABLED && (
-            <a
-              href="https://wa.me/34655099298"
-              className="rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-800 hover:border-slate-400 hover:bg-slate-50 no-underline"
-            >
+            <ButtonLink href="https://wa.me/34655099298" external>
               Enviar fotos por WhatsApp
-            </a>
+            </ButtonLink>
           )}
 
-          <a
-            href="/contacto"
-            className="rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-800 hover:border-slate-400 hover:bg-slate-50 no-underline"
-          >
-            Pedir presupuesto
-          </a>
+          <ButtonLink href="/contacto">Pedir presupuesto</ButtonLink>
         </div>
-      </section>
+      </Section>
 
       {/* SERVICIOS ELÉCTRICOS */}
-      <section className="space-y-4">
-        <h2 className="text-xl font-semibold text-slate-900">
+      <Section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 sm:text-2xl">
           ¿Qué tipo de trabajos eléctricos hacemos?
         </h2>
 
-        <p className="text-sm text-slate-700">
-          Cubrimos desde pequeñas incidencias hasta trabajos eléctricos más completos,
-          siempre con técnicos cualificados y material adecuado para tu instalación.
-          Si algo no lo hacemos nosotros, te lo diremos antes de intentarlo.
+        <p className="max-w-3xl text-sm text-slate-700 sm:text-base">
+          Cubrimos desde pequeñas incidencias hasta trabajos eléctricos más completos, siempre con
+          técnicos cualificados y material adecuado para tu instalación. Si algo no lo hacemos
+          nosotros, te lo diremos antes de intentarlo.
         </p>
 
-        <div className="grid gap-4 md:grid-cols-3">
-          <div className="rounded-2xl border border-slate-200 bg-white p-4">
-            <h3 className="text-sm font-semibold text-slate-900">
-              Averías y cortes de luz
-            </h3>
-            <p className="mt-1 text-xs text-slate-700">
-              Saltan los diferenciales, un circuito deja de funcionar o una zona se
-              queda sin luz. Localizamos el problema, lo reparamos y te explicamos
-              qué ha pasado para que lo entiendas.
-            </p>
-          </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Card>
+            <CardTitle>Averías y cortes de luz</CardTitle>
+            <CardText>
+              Saltan los diferenciales, un circuito deja de funcionar o una zona se queda sin luz.
+              Localizamos el problema, lo reparamos y te explicamos qué ha pasado.
+            </CardText>
+          </Card>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-4">
-            <h3 className="text-sm font-semibold text-slate-900">
-              Enchufes, puntos de luz y mecanismos
-            </h3>
-            <p className="mt-1 text-xs text-slate-700">
-              Instalación y cambio de enchufes, interruptores, regletas, tomas de TV
-              o datos, lámparas y apliques. Dejamos todo bien fijado y ordenado, sin
-              cables colgando ni chapuzas.
-            </p>
-          </div>
+          <Card>
+            <CardTitle>Enchufes, puntos de luz y mecanismos</CardTitle>
+            <CardText>
+              Instalación y cambio de enchufes, interruptores, tomas de TV/datos, lámparas y apliques.
+              Dejamos todo bien fijado y ordenado, sin cables colgando.
+            </CardText>
+          </Card>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-4">
-            <h3 className="text-sm font-semibold text-slate-900">
-              Cuadros eléctricos y mejoras de seguridad
-            </h3>
-            <p className="mt-1 text-xs text-slate-700">
-              Revisión y actualización de cuadros antiguos, instalación de protecciones
-              diferenciales y magnetotérmicos y mejoras para que tu instalación sea más
-              segura y fiable.
-            </p>
-          </div>
+          <Card>
+            <CardTitle>Cuadros eléctricos y mejoras de seguridad</CardTitle>
+            <CardText>
+              Revisión y actualización de cuadros antiguos, instalación de protecciones diferenciales
+              y magnetotérmicos, y mejoras para una instalación más segura y fiable.
+            </CardText>
+          </Card>
         </div>
-      </section>
+      </Section>
 
       {/* URGENCIAS */}
-      <section className="space-y-3 rounded-2xl border border-slate-200 bg-slate-900 p-5 text-slate-50">
-        <h2 className="text-xl font-semibold">
+      <Section className="rounded-2xl border border-slate-200 bg-slate-900 p-5 text-slate-50 sm:p-6">
+        <h2 className="text-xl font-semibold sm:text-2xl">
           Urgencias eléctricas con tiempos reales
         </h2>
-        <p className="text-sm text-slate-100">
-          Un problema eléctrico puede ser algo serio. Por eso damos prioridad a las
-          urgencias, pero sin jugar con tu tiempo. En Barcelona, siempre que haya
-          técnico disponible, podemos acudir en menos de 4 horas. En Madrid y en el
-          resto de servicios te damos una estimación honesta y agendamos lo antes posible.
+        <p className="text-sm text-slate-100 sm:text-base">
+          Un problema eléctrico puede ser algo serio. Por eso damos prioridad a las urgencias, pero
+          sin jugar con tu tiempo. En Barcelona, siempre que haya técnico disponible, podemos acudir
+          en menos de 4 horas. En Madrid y en el resto de servicios te damos una estimación honesta
+          y agendamos lo antes posible.
         </p>
-      </section>
+      </Section>
 
       {/* PREPARACIÓN */}
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold text-slate-900">
+      <Section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 sm:text-2xl">
           Antes de ir, queremos entender qué pasa
         </h2>
-        <p className="text-sm text-slate-700">
-          Cuanta más información tengamos antes de salir, mejor podremos ayudarte a la
-          primera. Por eso, si puedes, envíanos fotos o un breve vídeo.
+        <p className="max-w-3xl text-sm text-slate-700 sm:text-base">
+          Cuanta más información tengamos antes de salir, mejor podremos ayudarte a la primera. Por
+          eso, si puedes, envíanos fotos o un breve vídeo.
         </p>
-        <ul className="space-y-2 text-sm text-slate-700">
+
+        <ul className="grid gap-2 text-sm text-slate-700 sm:grid-cols-2 sm:text-base">
           <li>• ¿Cuándo empezó el problema? ¿Es la primera vez?</li>
           <li>• ¿Afecta a toda la vivienda o solo a una zona/punto?</li>
           <li>• ¿Ha habido cambios recientes en la instalación o una reforma?</li>
         </ul>
-      </section>
+      </Section>
 
       {/* FAQ */}
-      <section className="space-y-4">
-        <h2 className="text-xl font-semibold text-slate-900">
+      <Section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 sm:text-2xl">
           Preguntas frecuentes
         </h2>
 
-        <div className="space-y-3 text-sm text-slate-700">
-          <div>
-            <h3 className="font-semibold">
-              ¿Cuánto tardáis en venir?
-            </h3>
-            <p>
-              Depende de la ciudad, la franja horaria y la carga de trabajo. En Barcelona,
-              cuando hay técnico disponible, podemos llegar en menos de 4 horas. En el resto
-              de casos te daremos una estimación honesta antes de que decidas.
-            </p>
-          </div>
+        <div className="grid gap-4 lg:grid-cols-3">
+          <Card className="shadow-none">
+            <CardTitle>¿Cuánto tardáis en venir?</CardTitle>
+            <CardText>
+              Depende de la ciudad, la franja horaria y la carga de trabajo. En Barcelona, cuando hay
+              técnico disponible, podemos llegar en menos de 4 horas. En el resto de casos te daremos
+              una estimación honesta antes de que decidas.
+            </CardText>
+          </Card>
 
-          <div>
-            <h3 className="font-semibold">
-              ¿Podéis dar un precio cerrado por teléfono?
-            </h3>
-            <p>
+          <Card className="shadow-none">
+            <CardTitle>¿Podéis dar un precio cerrado por teléfono?</CardTitle>
+            <CardText>
               En trabajos sencillos a veces sí, pero en averías complejas necesitamos ver la
               instalación. Aun así, siempre te damos un rango orientativo antes de desplazarnos.
-            </p>
-          </div>
+            </CardText>
+          </Card>
 
-          <div>
-            <h3 className="font-semibold">
-              ¿Trabajáis para hogares y negocios?
-            </h3>
-            <p>
+          <Card className="shadow-none">
+            <CardTitle>¿Trabajáis para hogares y negocios?</CardTitle>
+            <CardText>
               Sí. Atendemos viviendas particulares, pequeños comercios y oficinas. Cuéntanos tu caso
               y te decimos la forma más razonable de resolverlo.
-            </p>
-          </div>
+            </CardText>
+          </Card>
         </div>
-      </section>
+      </Section>
 
       {/* CTA FINAL */}
-      <section className="space-y-3 rounded-2xl border border-dashed border-orange-300 bg-orange-50 p-5">
-        <h2 className="text-xl font-semibold text-slate-900">
+      <Section className="rounded-2xl border border-dashed border-brand-600/40 bg-brand-50 p-5 sm:p-6">
+        <h2 className="text-xl font-semibold text-slate-900 sm:text-2xl">
           ¿Necesitas un electricista en Madrid o Barcelona?
         </h2>
-        <p className="text-sm text-slate-700">
-          Llámanos, cuéntanos qué ocurre y te diremos cómo podemos ayudarte y en qué plazo.
-          Si nos mandas fotos o vídeo por WhatsApp, afinamos aún más la respuesta.
+        <p className="max-w-3xl text-sm text-slate-700 sm:text-base">
+          Llámanos, cuéntanos qué ocurre y te diremos cómo podemos ayudarte y en qué plazo. Si nos
+          mandas fotos o vídeo por WhatsApp, afinamos aún más la respuesta.
         </p>
 
-        <div className="flex flex-wrap gap-3">
-          <a
-            href="tel:+34655099298"
-            className="rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-600 no-underline"
-          >
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <ButtonLink href="tel:+34655099298" variant="primary" external>
             Llamar ahora
-          </a>
+          </ButtonLink>
 
           {WHATSAPP_ENABLED && (
-            <a
-              href="https://wa.me/34655099298"
-              className="rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-800 hover:border-slate-400 hover:bg-slate-50 no-underline"
-            >
+            <ButtonLink href="https://wa.me/34655099298" external>
               Enviar WhatsApp
-            </a>
+            </ButtonLink>
           )}
 
-          <a
-            href="/contacto"
-            className="rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-800 hover:border-slate-400 hover:bg-slate-50 no-underline"
-          >
-            Ir a contacto
-          </a>
+          <ButtonLink href="/contacto">Ir a contacto</ButtonLink>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

@@ -1,8 +1,9 @@
 // components/SiteHeader.tsx
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { MobileMenu } from "@/components/MobileMenu";
 
-const nav = [
+const navDesktop = [
   { href: "/", label: "Inicio" },
   { href: "/electricidad", label: "Electricidad" },
   { href: "/climatizacion", label: "Climatización" },
@@ -11,6 +12,20 @@ const nav = [
   { href: "/barcelona", label: "Barcelona" },
   { href: "/urgencias", label: "Urgencias" },
   { href: "/contacto", label: "Contacto" },
+];
+
+const navMobile = [
+  { href: "/", label: "Inicio" },
+  { href: "/madrid", label: "Madrid" },
+  { href: "/barcelona", label: "Barcelona" },
+  { href: "/urgencias", label: "Urgencias" },
+  { href: "/contacto", label: "Contacto" },
+];
+
+const servicesMobile = [
+  { href: "/electricidad", label: "Electricidad" },
+  { href: "/climatizacion", label: "Climatización" },
+  { href: "/reparaciones-manitas", label: "Reparaciones" },
 ];
 
 export function SiteHeader() {
@@ -28,16 +43,9 @@ export function SiteHeader() {
           </Link>
 
           {/* NAV escritorio */}
-          <nav
-            className="hidden items-center gap-5 text-sm md:flex"
-            aria-label="Navegación principal"
-          >
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-slate-700 hover:text-sky-800"
-              >
+          <nav className="hidden items-center gap-5 text-sm md:flex" aria-label="Navegación principal">
+            {navDesktop.map((item) => (
+              <Link key={item.href} href={item.href} className="text-slate-700 hover:text-sky-800">
                 {item.label}
               </Link>
             ))}
@@ -54,39 +62,8 @@ export function SiteHeader() {
             </a>
           </div>
 
-          {/* Menú móvil (sin JS, overlay) */}
-          <details className="relative md:hidden">
-            <summary className="cursor-pointer list-none select-none rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-800">
-              Menú
-            </summary>
-
-            <div className="absolute right-0 top-full z-50 mt-2 w-[min(92vw,22rem)] rounded-2xl border border-slate-200 bg-white p-2 shadow-lg">
-              <nav
-                className="grid max-h-[55vh] gap-1 overflow-y-auto overscroll-contain text-sm"
-                aria-label="Navegación móvil"
-              >
-                {nav.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="rounded-lg px-2 py-2 text-slate-700 hover:bg-slate-50 hover:text-sky-800"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </nav>
-
-              <div className="mt-2 border-t border-slate-200 pt-2">
-                <div className="px-2 text-xs font-semibold text-sky-800">+34 655 099 298</div>
-                <a
-                  href="tel:+34655099298"
-                  className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-orange-500 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-600"
-                >
-                  Llamar ahora
-                </a>
-              </div>
-            </div>
-          </details>
+          {/* Menú móvil (con cierre fuera + submenú Servicios) */}
+          <MobileMenu nav={navMobile} services={servicesMobile} />
         </div>
       </Container>
     </header>
