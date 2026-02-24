@@ -28,7 +28,10 @@ export function SiteHeader() {
           </Link>
 
           {/* NAV escritorio */}
-          <nav className="hidden items-center gap-5 text-sm md:flex" aria-label="Navegación principal">
+          <nav
+            className="hidden items-center gap-5 text-sm md:flex"
+            aria-label="Navegación principal"
+          >
             {nav.map((item) => (
               <Link
                 key={item.href}
@@ -51,14 +54,17 @@ export function SiteHeader() {
             </a>
           </div>
 
-          {/* Menú móvil (sin JS) */}
-          <details className="md:hidden">
-            <summary className="cursor-pointer select-none rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-800">
+          {/* Menú móvil (sin JS, overlay) */}
+          <details className="relative md:hidden">
+            <summary className="cursor-pointer list-none select-none rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-800">
               Menú
             </summary>
 
-            <div className="mt-3 w-[min(92vw,22rem)] rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
-              <nav className="grid max-h-[60vh] gap-1 overflow-y-auto text-sm" aria-label="Navegación móvil">
+            <div className="absolute right-0 top-full z-50 mt-2 w-[min(92vw,22rem)] rounded-2xl border border-slate-200 bg-white p-2 shadow-lg">
+              <nav
+                className="grid max-h-[55vh] gap-1 overflow-y-auto overscroll-contain text-sm"
+                aria-label="Navegación móvil"
+              >
                 {nav.map((item) => (
                   <Link
                     key={item.href}
@@ -70,8 +76,8 @@ export function SiteHeader() {
                 ))}
               </nav>
 
-              <div className="mt-3 border-t border-slate-200 pt-3">
-                <div className="text-xs font-semibold text-sky-800">+34 655 099 298</div>
+              <div className="mt-2 border-t border-slate-200 pt-2">
+                <div className="px-2 text-xs font-semibold text-sky-800">+34 655 099 298</div>
                 <a
                   href="tel:+34655099298"
                   className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-orange-500 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-600"
